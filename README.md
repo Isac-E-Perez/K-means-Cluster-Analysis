@@ -15,6 +15,12 @@ There will be five points to the results portion.
 
 **Libraries Needed**
 
+```python
+library(tidyverse) # data manipulation
+library(cluster) # clustering algorithms
+library(factoextra) # clustering algorithms & visualization
+```
+
 **Data Preparation**
 
 **Clustering Distance Measures**
