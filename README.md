@@ -5,7 +5,7 @@ Clustering is a broad set of techniques for finding subgroups of observations wi
 
 ### Note: 
 There will be five points to the results portion. 
-1. **Packages Needed**: The packages needed to start the project. 
+1. **Libraries Needed**: The libraries needed to start the project. 
 2. **Data Preparation**: Preparing the data for cluster analysis.
 3. **Clustering Distance Measures**: Understanding how to measure differences in observations.
 4. **K-Mean Clustering**: Calculations and methods for creating K subgroups of the data. 
@@ -13,7 +13,7 @@ There will be five points to the results portion.
 
 ### Results:
 
-**Packages Needed**
+**Libraries Needed**
 
 **Data Preparation**
 
