@@ -4,7 +4,12 @@
 Clustering is a broad set of techniques for finding subgroups of observations within a data set. When we cluster observations, we want observations in the same group to be similar and observations in the different groups to be dissimilar. This is because there isn't a response variable, this is an unsupervised method, which implies that it seeks to find relationships between the *n* obserations without being trained by a response variable. Clustering allows us ot identify which obervations are alike, and potentially categorize them therein. K-means clustering is the simplest and most commonly used clustering method for splitting a dataset into a set of k groups. 
 
 ### Note: 
-
+There will be five points to the results portion. 
+1. Packages Needed: The packages needed to start the project. 
+2. Data Preparation: Preparing the data for cluster analysis.
+3. Clustering Distance Measures: Understanding how to measure differences in observations.
+4. K-Mean Clustering: Calculations and methods for creating K subgroups of the data. 
+5. Determining Optimal Clusters: Identifying the right number of clusters to group the data.
 ### Results:
 ![Plot1](https://user-images.githubusercontent.com/89553126/143398927-e2cc283d-bb3f-45ca-bed2-72d8b8a516d0.png)
 ![Plot2](https://user-images.githubusercontent.com/89553126/143398929-d3cbc6d4-952a-49b6-a1b1-6747cf48a4f5.png)
