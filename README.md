@@ -12,6 +12,17 @@ There will be five points to the results portion.
 5. **Determining Optimal Clusters**: Identifying the right number of clusters to group the data.
 
 ### Results:
+
+**Packages Needed**
+
+**Data Preparation**
+
+**Clustering Distance Measures**
+
+**K-Mean Clustering**
+
+**Determining Optimal Clusters**
+
 ![Plot1](https://user-images.githubusercontent.com/89553126/143398927-e2cc283d-bb3f-45ca-bed2-72d8b8a516d0.png)
 ![Plot2](https://user-images.githubusercontent.com/89553126/143398929-d3cbc6d4-952a-49b6-a1b1-6747cf48a4f5.png)
 ![Plot3](https://user-images.githubusercontent.com/89553126/143398931-10e82959-29f8-425d-99ae-49bc503ba805.png)
