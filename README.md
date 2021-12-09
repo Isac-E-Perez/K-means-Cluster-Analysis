@@ -5,11 +5,12 @@ Clustering is a broad set of techniques for finding subgroups of observations wi
 
 ### Note: 
 There will be five points to the results portion. 
-1. Packages Needed: The packages needed to start the project. 
-2. Data Preparation: Preparing the data for cluster analysis.
-3. Clustering Distance Measures: Understanding how to measure differences in observations.
-4. K-Mean Clustering: Calculations and methods for creating K subgroups of the data. 
-5. Determining Optimal Clusters: Identifying the right number of clusters to group the data.
+1. **Packages Needed**: The packages needed to start the project. 
+2. **Data Preparation**: Preparing the data for cluster analysis.
+3. **Clustering Distance Measures**: Understanding how to measure differences in observations.
+4. **K-Mean Clustering**: Calculations and methods for creating K subgroups of the data. 
+5. **Determining Optimal Clusters**: Identifying the right number of clusters to group the data.
+
 ### Results:
 ![Plot1](https://user-images.githubusercontent.com/89553126/143398927-e2cc283d-bb3f-45ca-bed2-72d8b8a516d0.png)
 ![Plot2](https://user-images.githubusercontent.com/89553126/143398929-d3cbc6d4-952a-49b6-a1b1-6747cf48a4f5.png)
