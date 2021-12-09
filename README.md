@@ -14,7 +14,7 @@ There will be five points to the results portion.
 ### Results:
 
 **Libraries Needed**
-
+The following packages were used in this project:
 ```python
 library(tidyverse) # data manipulation
 library(cluster) # clustering algorithms
@@ -22,6 +22,20 @@ library(factoextra) # clustering algorithms & visualization
 ```
 
 **Data Preparation**
+To perform cluster analysis in R, generally, we have three conditions on how the data should be prepared.
+1. Rows are observations (individuals) and columns are variables.
+2. Any missing value in teh data must be removed or estimated.
+3. The data must be standardized (i.e. scaled) to make the variables comparable. Note that standardization consists of transforming the variables such that they have man zero and standard deviation of one.
+
+In this project, I will be using a built-in R data set `USArrests`, which contains statistics in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. The data also includes the percent of hte population living in urban areas. 
+
+
+```python
+df <- USArrests 
+df <- na.omit(df) # remove any missing values that might be present in the data.
+df <- scale(df) # I don't want the clustering algorithm to depend on an arbitrary variable unit, therefore I started by scaling/standardizing the data using the R function scale.
+head(df)
+```
 
 **Clustering Distance Measures**
 
