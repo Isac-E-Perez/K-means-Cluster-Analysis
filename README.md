@@ -26,7 +26,7 @@ library(factoextra) # clustering algorithms & visualization
 
 To perform cluster analysis in R, generally, we have three conditions on how the data should be prepared.
 1. Rows are observations (individuals) and columns are variables.
-2. Any missing value in teh data must be removed or estimated.
+2. Any missing value in the data must be removed or estimated.
 3. The data must be standardized (i.e. scaled) to make the variables comparable. Note that standardization consists of transforming the variables such that they have man zero and standard deviation of one.
 
 In this project, I will be using a built-in R data set `USArrests`, which contains statistics in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. The data also includes the percent of hte population living in urban areas. 
@@ -179,4 +179,4 @@ fviz_nbclust(df, kmeans, method = "wss")
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
 [^4]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
-[^5]: Currenlty I am not sure why the function and the formula differ. They should be the same and I am currenlty looking into it. It should be noted that I am writing the code on Mac and I have had problems in the past using certain function and packages with the operating system. 
+[^5]: Currenlty I am not sure why the function and the formula differ. They should be the same and I am currenlty looking into it. It should be noted that I am writing the code on Mac and have had problems in the past regarding the use of certain function and packages with the operating system. 
