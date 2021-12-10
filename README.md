@@ -170,15 +170,49 @@ fviz_nbclust(df, kmeans, method = "wss")
 
 **Average Silhouette Method**
 
-The average silhouette measures the quality of a clustering. That is, it determines how well each object 
+The average silhouette measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. 
+
+The average silhouette method compute sthe average silhouette of observations for different values of *k*. The optimal number of clusters *k* is the one that maximizes the average silhouette over a range of possible values for *k*.
+
+I use the `silhouette` function in the cluster package to compute the average silhouette width. The code computes the process for 1-15 clusters. The results show that 2 clusters maximize the average silhouette values with 4 clusters coming in a second optimal number of clusters. 
+
+```python
+# function to compute average silhouette for k clusters
+avg_sil <- function(k) {
+  km.res <- kmeans(df, centers = k, nstart = 25)
+  ss <- silhouette(km.res$cluster, dist(df))
+  mean(ss[, 3])
+}
+
+# Compute and plot wss for k = 2 to k = 15
+k.values <- 2:15
+
+# extract avg silhouette for 2-15 clusters
+avg_sil_values <- map_dbl(k.values, avg_sil)
+
+plot(k.values, avg_sil_values,
+     type = "b", pch = 19, frame = FALSE, 
+     xlab = "Number of clusters K",
+     ylab = "Average Silhouettes")
+```
 
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
-![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png)
+
+Similarily, the process can be computed with a single function `fviz_nbclust`:
+
+```python 
+fviz_nbclust(df, kmeans, method = "silhouette")
+```
+![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png) [^6]
+
+**Gap Statistic Method**
+
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
 ![Plot10](https://user-images.githubusercontent.com/89553126/143398951-fdf8eff1-fe31-4258-b79e-38dc2e2ce32b.png)
 
 [^1]:  Where the x and y are two vectors of length *n*.
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
-[^4]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
-[^5]: Currenlty not sure why the function and the formula differ. They should be the same and I am looking into it. Using Version 1.4.1717 for RStudio.
+[^4]:  C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
+[^5]:  Currenlty not sure why the function and the formula differ. They should be the same and I am looking into it. Using Version 1.4.1717 -- RStudio.
+[^6]:  Again they should be the same but they differ. Looking into it.
