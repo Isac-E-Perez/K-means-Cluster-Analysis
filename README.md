@@ -123,9 +123,9 @@ Ideally I would want to use the most optimal number of clusters. In order to fig
 
 **Elbow method**
 
-The basic idea is that we use the folowing equation:
+The basic idea of this method is that we use the folowing equation:
 
-![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png)
+![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png) [^3]
 
 
 ![Plot5](https://user-images.githubusercontent.com/89553126/143398933-c641214b-e0a2-4c0e-a1b0-6e5525839140.png)
@@ -137,4 +137,5 @@ The basic idea is that we use the folowing equation:
 
 [^1]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^2]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
+[^3]: C <sub> k</sub> is the k <sup> th</sup> cluster and W (C <sub> k</sub> is the within-cluster variation. 
  
