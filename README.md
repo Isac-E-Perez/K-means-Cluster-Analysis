@@ -41,7 +41,7 @@ head(df)
 
 **Clustering Distance Measures**
 
-The classification of observations into groups requires some methods for computing the distance or the (dis)similarity between each pair of observations. The result of this computation is known as a **dissimilarity** or **distance matrix**. There are many methods to calculate this distance information; the choice of distance measuring is a critical step in clustering. It defines how the similarity of two elements (x,y) is calculated and it will influence the shape of the clusters.
+The classification of observations into groups requires some methods for computing the distance or the (dis)similarity between each pair of observations. The result of this computation is known as a **dissimilarity** or **distance matrix**. There are many methods to calculate this distance information; the choice of distance measuring is a critical step in clustering. It defines how the similarity of two elements ( x , y ) is calculated and it will influence the shape of the clusters.
 
 The classical methods for distance measurements are *Euclidean* and *Manhattan distance*. The one I will be using is *Euclidean*, which is defined as followed:
 
@@ -49,9 +49,9 @@ The classical methods for distance measurements are *Euclidean* and *Manhattan d
 
 Where the x and y are two vectors of length *n*.
 
-For common clustering software, the default distance measure is the *Euclidean distance*. However, I should note that depending on the type of data and the research questions, other dissimilarity measures might be preferred, such as *Manhattan*, *Pearson*, *Spearman*, and *Kendall correlation distance*.
+For common clustering software, the default distance measurement is the *Euclidean distance*. However, I should note that depending on the type of data and the research questions, other dissimilarity measures might be preferred, such as *Manhattan*, *Pearson*, *Spearman*, and *Kendall correlation distance*.
 
-Within R we can compute and visualize hte distnace matrix using the funcitons `get_dist` and `fviz_dist` and the `factoextra` R package. This starts to illustrate which states have large dissimilarities (red) versus those that appear to be fairly similar (teal).
+Within R we can compute and visualize the distance matrix using the functions `get_dist` and `fviz_dist` and the `factoextra` R package. This begins to illustrate which states have large dissimilarities (red) versus those that appear to be fairly similar (teal).
 
 ```python
 distance <- get_dist(df) # for computing a distance matrix between the rows of a data matrix.
@@ -63,7 +63,7 @@ fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4
 
 K-mean clustering is the most commonly used unsupervised machine learning algorithm for partitioning a given data set into a set of *k* groups (i.e. *k* clusters), where *k* represents the number of groups pre-specified by the analyst. It classifies objects in multiple groups (i.e. clusters), such that objects within the same cluster are as similar as possible (i.e. high instra-class similarity), whereas objects from different clusters are as dissimilar as possible (i.e. low inter-class similarity). In k-means clustering, each cluster is represented by its center (i.e. centroid) which corresponds to the mean of points assigned to the cluster.
 
-The basic idea to k-means clustering consists of defining clusters os that the total intra-cluster variation (known as total within-cluster variation) is minimized.
+The basic idea to k-means clustering consists of defining clusters so that the total intra-cluster variation (known as total within-cluster variation) is minimized.
 
 **Determining Optimal Clusters**
 
