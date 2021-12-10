@@ -41,18 +41,28 @@ head(df)
 
 **Clustering Distance Measures**
 
-The classification of observations into groups requires some methods for computing the distance or the (dis)similarity between each pair of observations. The result of this computation is known as a **dissimilarity** or **distance matrix**. There are many methods to calculate this distance information; the choice of distnace measuring is a critical step in clustering. It defines how the similarity of two elements (x,y) is calculated and it will influence the shape of the clusters.
+The classification of observations into groups requires some methods for computing the distance or the (dis)similarity between each pair of observations. The result of this computation is known as a **dissimilarity** or **distance matrix**. There are many methods to calculate this distance information; the choice of distance measuring is a critical step in clustering. It defines how the similarity of two elements (x,y) is calculated and it will influence the shape of the clusters.
 
 The classical methods for distance measurements are *Euclidean* and *Manhattan distance*. The one I will be using is *Euclidean*, which is defined as followed:
 
 ![1](https://user-images.githubusercontent.com/89553126/145494761-0ccf7f64-94a3-414c-8d1a-dcbd22af8dea.png)
 
+Where the x and y are two vectors of length *n*.
+
+For common clustering software, the default distance measure is the *Euclidean distance*. However, I should note that depending on the type of data and the research questions, other dissimilarity measures might be preferred, such as *Manhattan*, *Pearson*, *Spearman*, and *Kendall correlation distance*.
+
+Within R we can compute and visualize hte distnace matrix using the funcitons `get_dist` and `fviz_dist` and the `factoextra` R package. This starts to illustrate which states have large dissimilarities (red) versus those that appear to be fairly similar (teal).
+
+```python
+distance <- get_dist(df) # for computing a distance matrix between the rows of a data matrix.
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07")) # for visualizing the distance matrix
+```
+![Plot1](https://user-images.githubusercontent.com/89553126/143398927-e2cc283d-bb3f-45ca-bed2-72d8b8a516d0.png)
 
 **K-Mean Clustering**
 
 **Determining Optimal Clusters**
 
-![Plot1](https://user-images.githubusercontent.com/89553126/143398927-e2cc283d-bb3f-45ca-bed2-72d8b8a516d0.png)
 ![Plot2](https://user-images.githubusercontent.com/89553126/143398929-d3cbc6d4-952a-49b6-a1b1-6747cf48a4f5.png)
 ![Plot3](https://user-images.githubusercontent.com/89553126/143398931-10e82959-29f8-425d-99ae-49bc503ba805.png)
 ![Plot4](https://user-images.githubusercontent.com/89553126/143398932-e4448312-4d4d-4f08-8b90-3f310eaf276e.png)
