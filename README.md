@@ -131,10 +131,10 @@ The basic idea of this method is that we use the folowing equation:
 ![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png) [^3]
 
 The total within-cluster sum of square (wss) measures the compactness of the clustering and we want tit ot be as small as possible. Therefore, we can use the following algorithm to define the optimal clusters:
-1. Compute 
-2. blah
-3. blah
-4. blah
+1. Compute clustering algorithm (e.g. k-means clustering) for different values of *k*. 
+2. For each *k*, calculate the total within-cluster sum of square (wss)
+3. Plot the curve of wss according to the number of clusters *k*.
+4. The location of a bend (knee) in the plot is generally considered as an indicator of the appropriate number of clusters.
 
 I can now implement this in R with the following code.
 
