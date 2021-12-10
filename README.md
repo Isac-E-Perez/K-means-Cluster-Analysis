@@ -179,4 +179,4 @@ fviz_nbclust(df, kmeans, method = "wss")
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
 [^4]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
-[^5]: Currenlty I am not sure why the function and the formula differ. They should be the same and I am looking into it. 
+[^5]: Currenlty I am not sure why the function and the formula differ. They should be the same and I am looking into it. Using Version 1.4.1717 for RStudio.
