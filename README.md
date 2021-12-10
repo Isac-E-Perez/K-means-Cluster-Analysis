@@ -65,11 +65,60 @@ K-mean clustering is the most commonly used unsupervised machine learning algori
 
 The basic idea to k-means clustering consists of defining clusters so that the total intra-cluster variation (known as total within-cluster variation)[^1] is minimized[^2].
 
-**Determining Optimal Clusters**
+The k-means algorithm can be summarized as followed:
+1. Specify the number of clusters (k) to be created (by the analyst).
+2. Select randomly k objects from the data set as the initial cluster centers or means.
+3. Assigns each observation to their closest centroid, based on the Euclidean distance between the object and the centroid.
+4. For each of hte k clusters, update the cluster centroid by calculating the new mean values of all the data points in the cluster. 
+5. Iteratively minimize the total within sum of square. That is, iterate steps 3 and 4 until the cluster assignments stop changing or the maximum number of iterations is reached.
+
+We can compute k-means in R iwht the `kmeans` function. In the code we will group the data into two clusters (`center = 2`). The `kmeans` function also has an `nstart` option that attempts multiple initial configurations and reports on the best one. In my case, adding `nstart = 25` will generate 25 initial configurations. 
+
+```python
+k2 <- kmeans(df, centers = 2, nstart = 25)
+```
+I could view the results by using `fviz_cluster`. This provies an illustration of the clusters. If there are more than two dimensions (variables) `fviz_cluster` will perform principal component analyis (PCA) and plot the data points according to the first two principal components that explain the majority of the variance.
+
+```python
+fviz_cluster(k2, data = df)
+```
 
 ![Plot2](https://user-images.githubusercontent.com/89553126/143398929-d3cbc6d4-952a-49b6-a1b1-6747cf48a4f5.png)
+
+Alternatively, standard pairwise scatter plots can be used to illustrate the clusters compared to the original variables.  
+
+```python
+df %>%
+  as_tibble() %>%
+  mutate(cluster = k2$cluster,
+         state = row.names(USArrests)) %>%
+  ggplot(aes(UrbanPop, Murder, color = factor(cluster), label = state)) +
+  geom_text()
+```
+
 ![Plot3](https://user-images.githubusercontent.com/89553126/143398931-10e82959-29f8-425d-99ae-49bc503ba805.png)
+
+We can also use several different values of k and examine the differences in the results. We can execute hte same process for 3, 4 and 5 clusters.
+
+```python
+k3 <- kmeans(df, centers = 3, nstart = 25)
+k4 <- kmeans(df, centers = 4, nstart = 25)
+k5 <- kmeans(df, centers = 5, nstart = 25)
+
+# plots to compare
+p1 <- fviz_cluster(k2, geom = "point", data = df) + ggtitle("k = 2")
+p2 <- fviz_cluster(k3, geom = "point",  data = df) + ggtitle("k = 3")
+p3 <- fviz_cluster(k4, geom = "point",  data = df) + ggtitle("k = 4")
+p4 <- fviz_cluster(k5, geom = "point",  data = df) + ggtitle("k = 5")
+
+```
+
 ![Plot4](https://user-images.githubusercontent.com/89553126/143398932-e4448312-4d4d-4f08-8b90-3f310eaf276e.png)
+
+Although the visual assessment tells us where the true dilineations occur (or do not occur) between clusters, it does not inform us what the optimal number of clusters is.
+
+**Determining Optimal Clusters**
+
 ![Plot5](https://user-images.githubusercontent.com/89553126/143398933-c641214b-e0a2-4c0e-a1b0-6e5525839140.png)
 ![Plot6](https://user-images.githubusercontent.com/89553126/143398935-38a8ab4d-becd-4c3d-8a9d-11ad936874c6.png)
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
