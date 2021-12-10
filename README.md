@@ -111,6 +111,9 @@ p2 <- fviz_cluster(k3, geom = "point",  data = df) + ggtitle("k = 3")
 p3 <- fviz_cluster(k4, geom = "point",  data = df) + ggtitle("k = 4")
 p4 <- fviz_cluster(k5, geom = "point",  data = df) + ggtitle("k = 5")
 
+
+library(gridExtra)
+grid.arrange(p1, p2, p3, p4, nrow = 2)
 ```
 
 ![Plot4](https://user-images.githubusercontent.com/89553126/143398932-e4448312-4d4d-4f08-8b90-3f310eaf276e.png)
@@ -127,9 +130,48 @@ The basic idea of this method is that we use the folowing equation:
 
 ![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png) [^3]
 
+The total within-cluster sum of square (wss) measures the compactness of the clustering and we want tit ot be as small as possible. Therefore, we can use the following algorithm to define the optimal clusters:
+1. Compute 
+2. blah
+3. blah
+4. blah
+
+I can now implement this in R with the following code.
+
+```python
+set.seed(123)
+
+# function to compute total within-cluster sum of square 
+wss <- function(k) {
+  kmeans(df, k, nstart = 10 )$tot.withinss
+}
+
+# Compute and plot wss for k = 1 to k = 15
+k.values <- 1:15
+
+# extract wss for 2-15 clusters
+wss_values <- map_dbl(k.values, wss)
+
+plot(k.values, wss_values,
+     type="b", pch = 19, frame = FALSE, 
+     xlab="Number of clusters K",
+     ylab="Total within-clusters sum of squares")
+```
 
 ![Plot5](https://user-images.githubusercontent.com/89553126/143398933-c641214b-e0a2-4c0e-a1b0-6e5525839140.png)
+
+This process can be accomplished with a single function `fviz_nbclust`:
+
+```python
+set.seed(123)
+
+fviz_nbclust(df, kmeans, method = "wss")
+```
+
 ![Plot6](https://user-images.githubusercontent.com/89553126/143398935-38a8ab4d-becd-4c3d-8a9d-11ad936874c6.png)
+
+**Average Silhouette Method**
+
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
 ![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png)
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
