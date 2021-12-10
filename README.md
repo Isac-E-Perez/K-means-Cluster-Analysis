@@ -45,10 +45,8 @@ The classification of observations into groups requires some methods for computi
 
 The classical methods for distance measurements are *Euclidean* and *Manhattan distance*. The one I will be using is *Euclidean*, which is defined as followed:
 
-![1](https://user-images.githubusercontent.com/89553126/145494761-0ccf7f64-94a3-414c-8d1a-dcbd22af8dea.png)
-
-Where the x and y are two vectors of length *n*.
-
+![1](https://user-images.githubusercontent.com/89553126/145494761-0ccf7f64-94a3-414c-8d1a-dcbd22af8dea.png) [^1]
+ 
 For common clustering software, the default distance measurement is the *Euclidean distance*. However, I should note that depending on the type of data and the research questions, other dissimilarity measures might be preferred, such as *Manhattan*, *Pearson*, *Spearman*, and *Kendall correlation distance*.
 
 Within R we can compute and visualize the distance matrix using the functions `get_dist` and `fviz_dist` and the `factoextra` R package. This begins to illustrate which states have large dissimilarities (red) versus those that appear to be fairly similar (teal).
@@ -63,7 +61,7 @@ fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4
 
 K-mean clustering is the most commonly used unsupervised machine learning algorithm for partitioning a given data set into a set of *k* groups (i.e. *k* clusters), where *k* represents the number of groups pre-specified by the analyst. It classifies objects in multiple groups (i.e. clusters), such that objects within the same cluster are as similar as possible (i.e. high instra-class similarity), whereas objects from different clusters are as dissimilar as possible (i.e. low inter-class similarity). In k-means clustering, each cluster is represented by its center (i.e. centroid) which corresponds to the mean of points assigned to the cluster.
 
-The basic idea to k-means clustering consists of defining clusters so that the total intra-cluster variation (known as total within-cluster variation)[^1] is minimized[^2].
+The basic idea to k-means clustering consists of defining clusters so that the total intra-cluster variation (known as total within-cluster variation)[^2] is minimized[^3].
 
 The k-means algorithm can be summarized as followed:
 1. Specify the number of clusters (k) to be created (by the analyst).
@@ -128,7 +126,7 @@ Ideally I would want to use the most optimal number of clusters. In order to fig
 
 The basic idea of this method is that we use the folowing equation:
 
-![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png) [^3]
+![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png) [^4]
 
 The total within-cluster sum of square (wss) measures the compactness of the clustering and we want tit ot be as small as possible. Therefore, we can use the following algorithm to define the optimal clusters:
 1. Compute clustering algorithm (e.g. k-means clustering) for different values of *k*. 
@@ -177,7 +175,8 @@ fviz_nbclust(df, kmeans, method = "wss")
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
 ![Plot10](https://user-images.githubusercontent.com/89553126/143398951-fdf8eff1-fe31-4258-b79e-38dc2e2ce32b.png)
 
-[^1]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
-[^2]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
-[^3]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
+[^1]:  Where the x and y are two vectors of length *n*.
+[^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
+[^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
+[^4]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
  
