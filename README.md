@@ -166,7 +166,7 @@ set.seed(123)
 fviz_nbclust(df, kmeans, method = "wss")
 ```
 
-![Plot6](https://user-images.githubusercontent.com/89553126/143398935-38a8ab4d-becd-4c3d-8a9d-11ad936874c6.png)
+![Plot6](https://user-images.githubusercontent.com/89553126/143398935-38a8ab4d-becd-4c3d-8a9d-11ad936874c6.png) [^5]
 
 **Average Silhouette Method**
 
@@ -179,4 +179,4 @@ fviz_nbclust(df, kmeans, method = "wss")
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
 [^4]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
- 
+[^5]: Currenlty I am not sure why the function and the formula differ. They should be the same and I am currenlty looking into it. It should be noted that I am writing the code on Mac and I have had problems in the past using certain function and packages with the operating system. 
