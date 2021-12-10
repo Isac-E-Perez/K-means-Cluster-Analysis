@@ -119,7 +119,7 @@ Although the visual assessment tells us where the true dilineations occur (or do
 
 **Determining Optimal Clusters**
 
-Ideally I would want to use the most optimal number of clusters. In order to figure this out, I enacted the three most popular methods for determining hte optimal clusters, which are the **Elbow**, and **Silhouette** method and **Gap statistic**. 
+Ideally I would want to use the most optimal number of clusters. In order to figure this out, I enacted the three most popular methods for determining the optimal clusters, which are the **Elbow**, and **Silhouette** method and **Gap statistic**. 
 
 **Elbow method**
 
@@ -137,5 +137,5 @@ The basic idea of this method is that we use the folowing equation:
 
 [^1]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^2]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
-[^3]: C <sub> k</sub> is the k <sup> th</sup> cluster and W (C <sub> k</sub> is the within-cluster variation. 
+[^3]: C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
  
