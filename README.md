@@ -170,6 +170,8 @@ fviz_nbclust(df, kmeans, method = "wss")
 
 **Average Silhouette Method**
 
+The average silhouette measures the quality of a clustering. That is, it determines how well each object 
+
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
 ![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png)
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
