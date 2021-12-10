@@ -14,6 +14,7 @@ There will be five points to the results portion.
 ### Results:
 
 **Libraries Needed**
+
 The following packages were used in this project:
 ```python
 library(tidyverse) # data manipulation
@@ -22,6 +23,7 @@ library(factoextra) # clustering algorithms & visualization
 ```
 
 **Data Preparation**
+
 To perform cluster analysis in R, generally, we have three conditions on how the data should be prepared.
 1. Rows are observations (individuals) and columns are variables.
 2. Any missing value in teh data must be removed or estimated.
@@ -38,6 +40,13 @@ head(df)
 ```
 
 **Clustering Distance Measures**
+
+The classification of observations into groups requires some methods for computing the distance or the (dis)similarity between each pair of observations. The result of this computation is known as a **dissimilarity** or **distance matrix**. There are many methods to calculate this distance information; the choice of distnace measuring is a critical step in clustering. It defines how the similarity of two elements (x,y) is calculated and it will influence the shape of the clusters.
+
+The classical methods for distance measurements are *Euclidean* and *Manhattan distance*. The one I will be using is *Euclidean*, which is defined as followed:
+
+![1](https://user-images.githubusercontent.com/89553126/145494761-0ccf7f64-94a3-414c-8d1a-dcbd22af8dea.png)
+
 
 **K-Mean Clustering**
 
