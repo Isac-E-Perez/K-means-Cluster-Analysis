@@ -121,6 +121,13 @@ Although the visual assessment tells us where the true dilineations occur (or do
 
 Ideally I would want to use the most optimal number of clusters. In order to figure this out, I enacted the three most popular methods for determining hte optimal clusters, which are the **Elbow**, and **Silhouette** method and **Gap statistic**. 
 
+**Elbow method**
+
+The basic idea is that we use the folowing equation:
+
+![2](https://user-images.githubusercontent.com/89553126/145503650-4aa075bf-37d8-49e5-8de9-c0f8910343db.png)
+
+
 ![Plot5](https://user-images.githubusercontent.com/89553126/143398933-c641214b-e0a2-4c0e-a1b0-6e5525839140.png)
 ![Plot6](https://user-images.githubusercontent.com/89553126/143398935-38a8ab4d-becd-4c3d-8a9d-11ad936874c6.png)
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
