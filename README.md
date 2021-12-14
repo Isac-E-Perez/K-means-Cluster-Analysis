@@ -70,7 +70,7 @@ The k-means algorithm can be summarized as followed:
 4. For each of hte k clusters, update the cluster centroid by calculating the new mean values of all the data points in the cluster. 
 5. Iteratively minimize the total within sum of square. That is, iterate steps 3 and 4 until the cluster assignments stop changing or the maximum number of iterations is reached.
 
-We can compute k-means in R iwht the `kmeans` function. In the code we will group the data into two clusters (`center = 2`). The `kmeans` function also has an `nstart` option that attempts multiple initial configurations and reports on the best one. In my case, adding `nstart = 25` will generate 25 initial configurations. 
+We can compute k-means in R with the `kmeans` function. In the code we will group the data into two clusters (`center = 2`). The `kmeans` function also has an `nstart` option that attempts multiple initial configurations and reports on the best one. In my case, adding `nstart = 25` will generate 25 initial configurations. 
 
 ```python
 k2 <- kmeans(df, centers = 2, nstart = 25)
