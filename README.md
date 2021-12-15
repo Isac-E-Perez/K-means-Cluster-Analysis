@@ -158,6 +158,8 @@ plot(k.values, wss_values,
 
 ![Plot5](https://user-images.githubusercontent.com/89553126/143398933-c641214b-e0a2-4c0e-a1b0-6e5525839140.png)
 
+The visualization suggests four clusters as the optimal number of clusters.
+
 This process can be accomplished with a single function `fviz_nbclust`:
 
 ```python
@@ -172,7 +174,7 @@ fviz_nbclust(df, kmeans, method = "wss")
 
 The average silhouette measures the quality of a clustering. That is, it determines how well each object lies within its cluster. A high average silhouette width indicates a good clustering. 
 
-The average silhouette method compute sthe average silhouette of observations for different values of *k*. The optimal number of clusters *k* is the one that maximizes the average silhouette over a range of possible values for *k*.
+The average silhouette method computes the average silhouette of observations for different values of *k*. The optimal number of clusters *k* is the one that maximizes the average silhouette over a range of possible values for *k*.
 
 I use the `silhouette` function in the cluster package to compute the average silhouette width. The code computes the process for 1-15 clusters. The results show that 2 clusters maximize the average silhouette values with 4 clusters coming in a second optimal number of clusters. 
 
@@ -198,12 +200,14 @@ plot(k.values, avg_sil_values,
 
 ![Plot7](https://user-images.githubusercontent.com/89553126/143398937-6b4057df-1751-42e6-b66e-9fc519c73285.png)
 
+The visualization suggests four clusters as the optimal number of clusters.
+
 Similarily, the process can be computed with a single function `fviz_nbclust`:
 
 ```python 
 fviz_nbclust(df, kmeans, method = "silhouette")
 ```
-![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png) [^6]
+![Plot8](https://user-images.githubusercontent.com/89553126/143398946-80d360ba-60ae-4ab6-ac46-2cfcbf6c0721.png) [^6] 
 
 **Gap Statistic Method**
 
@@ -211,15 +215,60 @@ The gap statistic method can be applied to any clustering method (i.e. K-means c
 
 For the observed data and the the reference data, the total intracluster variation is computed using different values of *k*. The gap statistic for a given *k* is defined as follow:
 
-<img width="338" alt="Screen Shot 2021-12-15 at 2 04 55 PM" src="https://user-images.githubusercontent.com/89553126/146257220-5796a81d-ed45-4287-923f-80118566b11c.png">
+<img width="338" alt="Screen Shot 2021-12-15 at 2 04 55 PM" src="https://user-images.githubusercontent.com/89553126/146257220-5796a81d-ed45-4287-923f-80118566b11c.png"> [^7]
 
+To compute the gap statistic method I can use the `clusGap` function which provides the gap statistic and standard error for an output.
 
+```python
+# compute gap statistic
+set.seed(123)
+gap_stat <- clusGap(df, FUN = kmeans, nstart = 25,
+                    K.max = 10, B = 50)
+# Print the result
+print(gap_stat, method = "firstmax")
+```
+
+The results can be visualized with `fviz_gap_stat` which suggests three clusters as the optimal number of clusters.
+
+```python
+# visualize the results 
+fviz_gap_stat(gap_stat)
+```
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
+
+**Extracting Results**
+
+With most of these approaches suggesting 4 as teh number of optimal clusters, we can perform the final analysis and extract the results using 4 clusters.
+
+```python
+# extracting results 
+# Compute k-means clustering with k = 4
+set.seed(123)
+final <- kmeans(df, 4, nstart = 25)
+print(final)
+```
+
+Visualize the results using `fviz_cluster`:
+
+```python
+fviz_cluster(final, data = df)
+```
+
 ![Plot10](https://user-images.githubusercontent.com/89553126/143398951-fdf8eff1-fe31-4258-b79e-38dc2e2ce32b.png)
 
+Finally, I can extract the clusters and add to the initial data to do some descriptive statistics at the cluster level:
+
+```python
+USArrests %>%
+  mutate(Cluster = final$cluster) %>%
+  group_by(Cluster) %>%
+  summarise_all("mean")
+```
+ 
 [^1]:  Where the x and y are two vectors of length *n*.
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
 [^4]:  C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation. 
 [^5]:  Currenlty not sure why the function and the formula differ. They should be the same and I am looking into it. Using Version 1.4.1717 -- RStudio.
 [^6]:  Again they should be the same but they differ. Looking into it.
+[^7]:  Where E<sub>n</sub><sup>*</sup> denotes the expectation under a sample size n from the reference distribution. The gap statistic measures the deviation of the observed W<sub>k</sub> value from its expected value under the null hypothesis. The estimate of the optimal clusters will be the vlaue that maximizes *Gap*<sub>n</sub>(*k*). Meaning that the clustering structure is far away from the uniform distribution of points. 
