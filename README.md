@@ -207,6 +207,8 @@ fviz_nbclust(df, kmeans, method = "silhouette")
 
 **Gap Statistic Method**
 
+The gap statistic method can be applied to any clustering method (i.e. K-means clustering, hierarchical clustering). The gap statistic compares the total intracluster variation for different values of *k* with their expected values under null reference distribution of the data (i.e. a distribution with no obvious clustering). The reference dataset is generated using Monte Carlo simulations of the sampling process. That is, for each variable (x<sub>i</sub>) in the data set we compute its range [min(x<sub>i</sub>), max(x<sub>i</sub>)] and generate values for the *n* points uniformly from the interval min to max. A large gap statistics means the clustering structure is very far away from the random uniform distribution of points.
+
 ![Plot9](https://user-images.githubusercontent.com/89553126/143398948-e71ceb58-3dff-4838-9446-f8b07ebae6e5.png)
 ![Plot10](https://user-images.githubusercontent.com/89553126/143398951-fdf8eff1-fe31-4258-b79e-38dc2e2ce32b.png)
 
