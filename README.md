@@ -233,7 +233,7 @@ fviz_gap_stat(gap_stat)
 
 **Extracting Results**
 
-With most of these approaches suggesting 4 as teh number of optimal clusters, we can perform the final analysis and extract the results using 4 clusters.
+With most of these approaches suggesting 4 as the number of optimal clusters, we can perform the final analysis and extract the results using 4 clusters.
 
 ```python
 # extracting results 
@@ -263,5 +263,5 @@ USArrests %>%
 [^1]:  Where the x and y are two vectors of length *n*.
 [^2]:  The *total within-cluster variation* measures the compactness (i.e. goodness) of the clustering and we want it to be as small as possible.
 [^3]:  There are several k-means algorithms available. The standard algorithm is the Hartigan-Wong algorithm, which defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid.
-[^4]:  C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub> is the within-cluster variation.   
+[^4]:  C<sub>k</sub> is the k<sup>th</sup> cluster and W (C<sub>k</sub>) is the within-cluster variation.   
 [^5]:  Where E<sub>n</sub><sup>*</sup> denotes the expectation under a sample size n from the reference distribution. The gap statistic measures the deviation of the observed W<sub>k</sub> value from its expected value under the null hypothesis. The estimate of the optimal clusters will be the vlaue that maximizes *Gap*<sub>n</sub>(*k*). Meaning that the clustering structure is far away from the uniform distribution of points. 
