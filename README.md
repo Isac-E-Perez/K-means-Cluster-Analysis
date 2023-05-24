@@ -29,7 +29,7 @@ To perform cluster analysis in R, generally, we have three conditions on how the
 2. Any missing value in the data must be removed or estimated.
 3. The data must be standardized (i.e. scaled) to make the variables comparable. Note that standardization consists of transforming the variables such that they have man zero and standard deviation of one.
 
-In this project, I will be using a built-in R data set `USArrests`, which contains statistics in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. The data also includes the percent of hte population living in urban areas. 
+In this project, I will be using a built-in R data set `USArrests`, which contains statistics in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. The data also includes the percent of the population living in urban areas. 
 
 
 ```python
